@@ -72,6 +72,27 @@ namespace MvcPracticaFinalLinq.Repositories
                 return plantillas;
             }
         }
+
+        public Plantilla FindPlantilla(int empleadono)
+        {
+            var consulta = from datos in
+                               this.tablaPlantilla.AsEnumerable()
+                           where datos.Field<int>("EMPLEADO_NO") == empleadono
+                           select datos;
+            var row = consulta.First();
+            Plantilla pla = new Plantilla
+            {
+                hospitalcod = row.Field<int>("HOSPITAL_COD"),
+                salacod = row.Field<int>("SALA_COD"),
+                empleadono = row.Field<int>("EMPLEADO_NO"),
+                apellido = row.Field<string>("APELLIDO"),
+                funcion = row.Field<string>("FUNCION"),
+                turno = row.Field<string>("T"),
+                salario = row.Field<int>("SALARIO")
+            };
+            return pla;
+        }
+
         public void UpsertPlantilla(int hospitalcod, int salacod, int empleadono, string apellido, string funcion, string turno, int salario)
         {
             this.com.CommandType = CommandType.StoredProcedure;

@@ -26,6 +26,13 @@ namespace MvcPracticaFinalLinq.Controllers
                 return View(plantillas);
             }
         }
+
+        public IActionResult Details(int empleadono)
+        {
+            Plantilla plantilla = this.repo.FindPlantilla(empleadono);
+            return View(plantilla);
+        }
+
         public IActionResult Upsert()
         {
             return View();

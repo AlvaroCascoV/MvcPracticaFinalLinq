@@ -1,0 +1,16 @@
+﻿@model Plantilla
+
+<h1>Detalles Plantilla</h1>
+
+<p>
+    <a asp-controller="Plantilla" asp-action="Index">Back</a>
+</p>
+<ul class="list-group">
+    <li class="list-group-item">Hospital: @Model.hospitalcod</li>
+    <li class="list-group-item">Sala: @Model.salacod</li>
+    <li class="list-group-item">Id Empleado: @Model.empleadono</li>
+    <li class="list-group-item">Apellido: @Model.apellido</li>
+    <li class="list-group-item">Funcion: @Model.funcion</li>
+    <li class="list-group-item">Turno: @Model.turno</li>
+    <li class="list-group-item">Salario: @Model.salario €</li>
+</ul>

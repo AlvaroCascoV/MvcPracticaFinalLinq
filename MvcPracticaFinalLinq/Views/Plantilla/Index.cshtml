@@ -28,6 +28,7 @@
                     <td>@emp.turno</td>
                     <td>@emp.salario</td>
                     <td>
+                        <a asp-controller="Plantilla" asp-action="Details" asp-route-empleadono="@emp.empleadono" class="btn btn-primary">Details</a>
                         <a asp-controller="Plantilla" asp-action="Delete" asp-route-empleadono="@emp.empleadono" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
