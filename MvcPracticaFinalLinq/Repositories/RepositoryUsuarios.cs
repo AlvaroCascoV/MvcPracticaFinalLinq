@@ -102,7 +102,6 @@ namespace MvcPracticaFinalLinq.Repositories
                 fechaEvento = (DateTime)consulta.FirstOrDefault()["fecha_evento"],
                 nombreActividad = consulta.FirstOrDefault()["NombreActividad"].ToString()
             };
-
             return usuario;
         }
     }
