@@ -1,0 +1,26 @@
+﻿@model List<Marta>
+
+<h1>Usuarios</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.idUsuario</td>
+                <td>@usuario.nombre</td>
+                <td>@usuario.apellidos</td>
+                <td>
+                    <a asp-action="Details" asp-route-idUsuario="@usuario.idUsuario" class="btn btn-primary">Detalles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

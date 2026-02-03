@@ -1,0 +1,21 @@
+﻿@model Marta
+<h1>Detalles</h1>
+
+<ul class="list-group">
+    <li class="list-group-item">Id: @Model.idUsuario</li>
+	<li class="list-group-item">Nombre Completo: @Model.nombre @Model.apellidos</li>
+	<li class="list-group-item">Correo: @Model.email</li>
+	<li class="list-group-item">Imagen: @Model.imagen</li>
+	<li class="list-group-item">Actividad: @Model.nombreActividad</li>
+	<li class="list-group-item">Fecha: @Model.fechaEvento</li>
+	<li class="list-group-item">Quiere ser capitan? @Model.quiereSerCapitan</li>
+	<li class="list-group-item">Curso: @Model.nombreCurso</li>
+
+</ul>
+
+
+
+@* 		• Nombre y Apellidos, Email, Imagen
+		• Nombre de la actividad en la que está inscrito y fecha y si quiere ser capitán
+		• Nombre del curso del usuario
+ *@
