@@ -142,6 +142,7 @@ namespace MvcPracticaFinalLinq.Repositories
             {
                 int personas = consulta.Count();
                 int maximo = consulta.Max(x => x.Field<int>("SALARIO"));
+                int suma = consulta.Sum(x => x.Field<int>("SALARIO"));
                 double media = consulta.Average(x => x.Field<int>("SALARIO"));
                 List<Plantilla> empleados = new List<Plantilla>();
                 foreach (var row in consulta)
@@ -162,6 +163,7 @@ namespace MvcPracticaFinalLinq.Repositories
                 {
                     Personas = personas,
                     MaximoSalario = maximo,
+                    SumaSalarios = suma,
                     MediaSalarial = media,
                     Empleados = empleados
                 };
