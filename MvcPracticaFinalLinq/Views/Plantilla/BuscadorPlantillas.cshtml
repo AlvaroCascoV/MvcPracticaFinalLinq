@@ -1,0 +1,56 @@
+﻿@model ResumenPlantilla
+@{
+    List<string> funcionesList = ViewData["FUNCIONES"] as List<string>;
+}
+<form method="post">
+    <select name="funcion" class="form-control">
+        @foreach (string ofi in funcionesList)
+        {
+            <option>@ofi</option>
+        }
+    </select>
+    <button class="btn btn-primary">Buscar empleados</button>
+</form>
+
+@if (Model != null)
+{
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-secondary">Personas: @Model.Personas</li>
+        <li class="list-group-item list-group-item-warning">Maximo salario: @Model.MaximoSalario</li>
+        <li class="list-group-item list-group-item-dark">Media salarial: @Model.MediaSalarial</li>
+    </ul>
+    @if (Model.Empleados != null)
+    {
+        <table class="table table-active">
+            <thead>
+                <tr>
+                    <th>Hospital</th>
+                    <th>Sala</th>
+                    <th>Id</th>
+                    <th>Apellido</th>
+                    <th>Funcion</th>
+                    <th>Turno</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Plantilla emp in Model.Empleados)
+                {
+                    <tr>
+                        <td>@emp.hospitalcod</td>
+                        <td>@emp.salacod</td>
+                        <td>@emp.empleadono</td>
+                        <td>@emp.apellido</td>
+                        <td>@emp.funcion</td>
+                        <td>@emp.turno</td>
+                        <td>@emp.salario</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2 style="color:blue">No existen empleados con ese oficio</h2>
+    }
+}

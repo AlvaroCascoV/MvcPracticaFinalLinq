@@ -1,0 +1,41 @@
+﻿@model List<Plantilla>
+
+<h1>Plantilla Index</h1>
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Hospital</th>
+                <th>Sala</th>
+                <th>Id</th>
+                <th>Apellido</th>
+                <th>Funcion</th>
+                <th>Turno</th>
+                <th>Salario</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@emp.hospitalcod</td>
+                    <td>@emp.salacod</td>
+                    <td>@emp.empleadono</td>
+                    <td>@emp.apellido</td>
+                    <td>@emp.funcion</td>
+                    <td>@emp.turno</td>
+                    <td>@emp.salario</td>
+                    <td>
+                        <a asp-controller="Plantilla" asp-action="Delete" asp-route-empleadono="@emp.empleadono" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>@ViewData["MENSAJE"]</h2>
+}
