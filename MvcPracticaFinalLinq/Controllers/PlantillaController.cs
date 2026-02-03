@@ -33,9 +33,17 @@ namespace MvcPracticaFinalLinq.Controllers
             return View(plantilla);
         }
 
-        public IActionResult Upsert()
+        public IActionResult Upsert(int empleadono)
         {
-            return View();
+            if (empleadono == 0)
+            {
+                return View();
+            }
+            else
+            {
+                Plantilla plantilla = this.repo.FindPlantilla(empleadono);
+                return View(plantilla);
+            }
         }
         [HttpPost]
         public IActionResult Upsert(int hospitalcod, int salacod, int empleadono, string apellido, string funcion, string turno, int salario)
